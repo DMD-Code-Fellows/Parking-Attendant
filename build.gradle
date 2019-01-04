@@ -1,30 +1,19 @@
-buildscript {
-	ext {
-		springBootVersion = '2.1.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+plugins {
+    id 'java'
+    id 'application'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-group = 'com.dmd.parking_iot.attendant'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
-
+mainClassName = 'App'
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter-websocket')
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compile 'javax.websocket:javax.websocket-client-api:1.1'
+    compile 'org.glassfish.tyrus:tyrus-client:1.14'
+    compile 'org.glassfish.tyrus.bundles:tyrus-standalone-client'
+    compile 'org.glassfish.tyrus:tyrus-container-grizzly:1.2.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/parking-iot-common-1.0.0.jar')
+}
+
+repositories {
+    jcenter()
 }
