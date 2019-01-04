@@ -12,6 +12,7 @@ dependencies {
     compile 'org.glassfish.tyrus:tyrus-container-grizzly:1.2.1'
     testCompile 'junit:junit:4.12'
     compile files('libs/parking-iot-common-1.0.0.jar')
+    compile 'javax.websocket:javax.websocket-api:1.1'
 }
 
 repositories {
